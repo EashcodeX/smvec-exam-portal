@@ -1,16 +1,13 @@
 {
   "version": 2,
   "name": "wipro-examination-portal",
-  "builds": [
+  "buildCommand": "flutter build web --release",
+  "outputDirectory": "build/web",
+  "installCommand": "flutter pub get",
+  "rewrites": [
     {
-      "src": "build/web/**",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ],
   "headers": [
@@ -48,10 +45,5 @@
         }
       ]
     }
-  ],
-  "env": {
-    "SUPABASE_URL": "@supabase_url",
-    "SUPABASE_ANON_KEY": "@supabase_anon_key",
-    "PRODUCTION": "true"
-  }
+  ]
 }
